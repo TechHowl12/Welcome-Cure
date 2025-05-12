@@ -16,6 +16,7 @@ const DesktopImageZoom = () => {
   const step1Ref = useRef(null);
   const step2Ref = useRef(null);
   const step3Ref = useRef(null);
+  const titleRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -35,6 +36,7 @@ const DesktopImageZoom = () => {
     const step1 = step1Ref.current;
     const step2 = step2Ref.current;
     const step3 = step3Ref.current;
+    const title = titleRef.current;
 
     ScrollTrigger.getAll()
       .filter((trigger) => trigger.vars?.trigger === section)
@@ -83,6 +85,13 @@ const DesktopImageZoom = () => {
         width: "100%",
         ease: "power2.out",
         duration: isMobile ? 4.5 : 4,
+      })
+      // Fade out title after image zoom is complete
+      .to(title, {
+        autoAlpha: 0,
+        y: -20,
+        duration: 2,
+        ease: "power2.in",
       });
 
     // Video animation
@@ -132,7 +141,10 @@ const DesktopImageZoom = () => {
           <div className="flex justify-center">
             <div className="w-11/12">
               <div className="text-center relative overflow-visible">
-                <h1 className="text-white text-3xl text-center sm:text-4xl md:text-5xl mb-5 md:mb-10">
+                <h1 
+                  ref={titleRef} 
+                  className="text-white text-3xl text-center sm:text-4xl md:text-5xl mb-5 md:mb-10"
+                >
                   How will we ensure your Safety?
                 </h1>
                 <div className="flex items-center justify-center">
@@ -165,7 +177,7 @@ const DesktopImageZoom = () => {
                           </p>
                           <p className="mt-2 text-xs sm:text-sm">
                             By bringing the true context into the equation and
-                            observing drivers over time, we’re radically
+                            observing drivers over time, we're radically
                             increasing the accuracy of risk assessment. This
                             will make it possible to identify and take action
                             with the riskiest drivers in your fleet.
