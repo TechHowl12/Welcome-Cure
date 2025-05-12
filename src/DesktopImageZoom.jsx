@@ -1,9 +1,8 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import roadrimg from "../assets/roadImg.png";
-import Down from "../assets/down-line.png";
+// import Down from "../assets/down-line.png";
 import Video from "../assets/video.mp4";
 
 if (typeof window !== "undefined") {
@@ -124,22 +123,18 @@ const DesktopImageZoom = () => {
 
   return (
     <>
-      <div
-        className="sticky top-0 left-0 right-0 z-30 flex items-center justify-center py-5"
-              >
-        <img src={Down} alt="down" className="h-36 md:h-56 mb-5" />
-      </div>
-      <h1 className="sticky top-20 left-0 right-0 text-white text-3xl text-center sm:text-4xl md:text-5xl mb-5 md:mb-10 z-20">
-        How will we ensure your Safety?
-      </h1>
+      {/* <img src={Down} alt="down" className="mx-auto mb-2 h-36 md:h-56" /> */}
       <section
         ref={sectionRef}
-        className="h-screen overflow-visible flex items-center justify-center"
+        className="h-screen overflow-visible flex items-center justify-center py-5"
       >
         <div className="container mx-auto px-4">
           <div className="flex justify-center">
-            <div className="w-12/12">
+            <div className="w-11/12">
               <div className="text-center relative overflow-visible">
+                <h1 className="text-white text-3xl text-center sm:text-4xl md:text-5xl mb-5 md:mb-10">
+                  How will we ensure your Safety?
+                </h1>
                 <div className="flex items-center justify-center">
                   <img
                     ref={img1Ref}
@@ -159,7 +154,7 @@ const DesktopImageZoom = () => {
                   {/* Step 1 */}
                   <div
                     ref={step1Ref}
-                    className="absolute z-50 top-0 w-full px-4 sm:px-0 py-5"
+                    className="absolute z-50 top-10 w-full px-4 sm:px-0"
                     style={{ display: "none", opacity: 0 }}
                   >
                     <div className="flex justify-center">
@@ -186,7 +181,7 @@ const DesktopImageZoom = () => {
                   {/* Step 2 */}
                   <div
                     ref={step2Ref}
-                    className="absolute z-50 bottom-0 w-full px-4 sm:px-0 py-5"
+                    className="absolute z-50 bottom-35 right-30 w-full px-4 sm:px-0"
                     style={{ display: "none", opacity: 0 }}
                   >
                     <div className="flex">
@@ -213,7 +208,7 @@ const DesktopImageZoom = () => {
                   {/* Step 3 */}
                   <div
                     ref={step3Ref}
-                    className="absolute z-50 bottom-0 w-full px-4 sm:px-0 py-5"
+                    className="absolute z-50 bottom-35 left-30 w-full px-4 sm:px-0"
                     style={{ display: "none", opacity: 0 }}
                   >
                     <div className="flex justify-end">
