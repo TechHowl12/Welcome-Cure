@@ -22,7 +22,8 @@ export default function LeadershipTestimonial(){
   const scrollTriggerRef = useRef(null)
   const [isMobile, setIsMobile] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
-
+  // Remove all carousel refs
+  
   // Check if device is mobile
   useEffect(() => {
     const checkMobile = () => {
@@ -263,7 +264,7 @@ export default function LeadershipTestimonial(){
             if (!ScrollTrigger.isScrolling()) {
               setActiveMember((prev) => (prev < totalMembers ? prev + 1 : 1));
             }
-          }, 5000); // Change every 2 seconds
+          }, 5000); // Change every 5 seconds
         } else {
           // Clear interval when section is not visible
           clearInterval(interval);
@@ -284,17 +285,15 @@ export default function LeadershipTestimonial(){
     };
   }, [totalMembers]);
 
-  // Animation for changing team members - simplify by removing animations
-  useEffect(() => {
-    // Simply update the content without animations when navigating
-    // This will make immediate changes with no fades or movements
-  }, [activeMember, isMobile]);
-
+  // Remove all animation effects
+  
   const handlePagination = (index) => {
     setActiveMember(index)
   }
 
   const currentMember = teamMembers.find((member) => member.id === activeMember) || teamMembers[0]
+  
+  // Remove carousel items
 
   return (
     <div
@@ -361,7 +360,7 @@ export default function LeadershipTestimonial(){
               <div className="flex flex-col space-y-3">
                 <button
                   className="text-gray-400 hover:text-white transition-colors"
-                  style={{ margin: "2px"}}
+                  style={{ margin: "2px" }}
                   onClick={() => setActiveMember((prev) => (prev > 1 ? prev - 1 : totalMembers))}
                 >
                   <img
@@ -420,7 +419,7 @@ export default function LeadershipTestimonial(){
           
           {/* Bio text at the bottom */}
           <div className="bio-container w-full mt-1 mb-3 flex justify-center">
-            <div className="bio-box relative  py-8 px-8 border border-[#B94C99] w-[300px] md:w-[306px] text-center"
+            <div className="bio-box relative py-8 px-8 border border-[#B94C99] w-[300px] md:w-[306px] text-center"
               style={{ width: "455px", height: "180px", minHeight: "180px", maxHeight: "180px", textAlign: "right" }}
             >
               <p className="bio-text text-xs text-right text-gray-300" key={`bio-mobile-${activeMember}`}>{currentMember.bio}</p>
@@ -429,14 +428,14 @@ export default function LeadershipTestimonial(){
         </div>
 
         {/* Original desktop layout - hide on mobile */}
-        <div className="hidden md:flex md:flex-row md:w-full items-center justify-between">
+        <div className="hidden md:flex md:flex-row md:w-full md:pr-30 items-center justify-center">
           {/* Left side - Title and Bio */}
           <div className="w-full md:w-[140%] flex flex-col items-center justify-center z-10 md:ml-22 md:mt-40">
             <h1 className="leadership-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider">LEADERSHIP</h1>
 
             {/* Bio with border box that's attached to the image */}
-            <div className="bio-container w-full md:ml-10 ml-20 mt-16  flex justify-center">
-              <div className="bio-box relative  pr-2 border-t border-l border-b border-[#B94C99] text-center ml-2 md:ml-4"
+            <div className="bio-container w-full md:ml-10 ml-20 mt-16 flex justify-center">
+              <div className="bio-box relative pr-2 border-t border-l border-b border-[#B94C99] text-center ml-2 md:ml-4"
                 style={{ width: "455px", height: "180px", minHeight: "180px", maxHeight: "180px", textAlign: "right" }}
               >
                 <p className="bio-text text-xs px-4 py-10 text-right sm:text-sm text-gray-300" key={`bio-${activeMember}`}>{currentMember.bio}</p>
@@ -526,7 +525,7 @@ export default function LeadershipTestimonial(){
             </div>
 
             {/* Vertical arrows - Now positioned to the right */}
-            <div className="arrows absolute right-8 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-12">
+            <div className="arrows absolute  gap-4 right-8 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-12">
               <button
                 className="text-gray-400 hover:text-white transition-colors"
                 style={{ margin: "2px" }}
